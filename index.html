@@ -231,7 +231,6 @@ footer a{color:var(--accent)}
   <section id="v-library">
     <div class="filters lib-filters">
       <div class="fgroup" id="f-tool"><b>工具</b></div>
-      <div class="fgroup" id="f-scene"><b>適用</b></div>
       <span class="count" id="count"></span>
     </div>
     <div class="layout">
@@ -292,126 +291,125 @@ const TOOLS = {
     steps:["開一個新對話，貼上提示詞","等 ChatGPT 產生 .pptx 檔後點連結下載","用 PowerPoint 或 Google 簡報開啟","套用學校範本或微調版面"],
     note:"ChatGPT 是用程式產生 PowerPoint，版面較陽春，手繪、水彩、黏土這類插畫風很難呈現。最適合先拿到結構、講稿與純色塊版面，再自己美化。"}
 };
-const SCENES = ["幼兒園","國小","國高中","教師研習"];
 
 // t: 迷你預覽 [底色, 文字, 強調1, 強調2]；best: 推薦工具
 const STYLES = [
  {id:"minimal",name:"極簡留白風",en:"Minimal Clean",v:"minimal",t:["#FFFFFF","#222831","#2F6FED","#E3E8F2"],
-  desc:"大量留白、一頁一重點，任何科目都不出錯。",scene:["國小","國高中","教師研習"],best:["nlm","canva","gamma"],
+  desc:"大量留白、一頁一重點，任何科目都不出錯。",best:["nlm","canva","gamma"],
   pal:[["#FFFFFF","純白"],["#222831","炭黑"],["#2F6FED","亮藍"]],
   font:"粗黑體標題，細黑體內文",layout:"標題靠左上，內容置中，四周留白至少三分之一，頁碼放右下",
   visual:"乾淨極簡、白底黑字，只用一個強調色標出關鍵字，圖示用細線條",
   avoid:"漸層、陰影、裝飾性圖片、整段文字",img:"minimalist, flat thin line icons, lots of white space, single blue accent"},
  {id:"chalk",name:"黑板粉筆風",en:"Chalkboard",v:"chalk",t:["#2E4A3F","#F4F1E8","#F2C94C","#F08A8A"],
-  desc:"墨綠黑板加粉筆字，一看就是上課的感覺。",scene:["國小","國高中"],best:["nlm","gamma"],
+  desc:"墨綠黑板加粉筆字，一看就是上課的感覺。",best:["nlm","gamma"],
   pal:[["#2E4A3F","黑板綠"],["#F4F1E8","粉筆白"],["#F2C94C","粉筆黃"],["#F08A8A","粉筆粉"]],
   font:"粉筆手寫感標題，內文用清楚的圓體確保易讀",layout:"像老師的板書：標題加底線，重點用粉筆框圈起來，角落畫小插圖",
   visual:"墨綠黑板質感背景、粉筆手寫字與粉筆線條、帶一點粉筆灰",
   avoid:"照片、太細的字、螢光色",img:"chalk drawing on dark green chalkboard, hand-drawn chalk lines, light chalk dust"},
  {id:"sketch",name:"手繪筆記風",en:"Sketchnote",v:"sketch",t:["#FFFFFF","#1F1F1F","#3DA5D9","#FFE08A"],
-  desc:"箭頭、框線、小人物串起概念，講流程和概念圖最清楚。",scene:["國小","國高中","教師研習"],best:["nlm","gamma"],
+  desc:"箭頭、框線、小人物串起概念，講流程和概念圖最清楚。",best:["nlm","gamma"],
   pal:[["#FFFFFF","白紙"],["#1F1F1F","黑色簽字筆"],["#3DA5D9","藍色螢光筆"],["#FFB627","黃色螢光筆"]],
   font:"手寫感標題，清楚的手寫風內文",layout:"視覺筆記：主題放中央，周圍用箭頭、對話框、小方框連結各重點",
   visual:"白紙上的黑色簽字筆手繪塗鴉、簡單火柴人與圖示、用螢光筆標重點",
   avoid:"寫實照片、3D 效果、密集文字",img:"sketchnote doodle, black marker line art on white paper, highlighter accents"},
  {id:"picturebook",name:"繪本童趣風",en:"Picture Book",v:"picturebook",t:["#FFF6E5","#3D3A35","#FF9F6B","#6BBF8E"],
-  desc:"溫暖插畫、大字少字，幼兒園和低年級最愛。",scene:["幼兒園","國小"],best:["nlm","canva","gamma"],
+  desc:"溫暖插畫、大字少字，幼兒園和低年級最愛。",best:["nlm","canva","gamma"],
   pal:[["#FFF6E5","暖奶油"],["#6BBF8E","草地綠"],["#FF9F6B","橘子色"],["#5AA9E6","天空藍"]],
   font:"圓潤粗圓體，字級特大",layout:"一頁一張大插圖配一句短句，像在翻繪本",
   visual:"溫暖的兒童繪本插畫、可愛動物角色、蠟筆與色鉛筆質感",
   avoid:"抽象圖表、小字、商務元素、尖銳或嚇人的造型",img:"warm children's picture book illustration, crayon and colored pencil texture, cute animals"},
  {id:"pastel",name:"馬卡龍粉彩風",en:"Pastel Macaron",v:"pastel",t:["#FFF9FB","#4A4A68","#F7B2BD","#BDE0FE"],
-  desc:"粉嫩低飽和色塊，溫柔可愛又不會太幼稚。",scene:["幼兒園","國小"],best:["canva","gamma"],
+  desc:"粉嫩低飽和色塊，溫柔可愛又不會太幼稚。",best:["canva","gamma"],
   pal:[["#FDE2E4","草莓粉"],["#CDEAC0","抹茶綠"],["#BDE0FE","薄荷藍"],["#FFF1B6","檸檬黃"],["#4A4A68","深灰紫（文字）"]],
   font:"圓體",layout:"圓角色塊分區，內容放在柔和的色卡上",
   visual:"粉彩馬卡龍配色、圓角造型、小星星與愛心點綴",
   avoid:"高飽和色、大面積黑色、尖角",img:"soft pastel colors, rounded shapes, cute minimal decorations"},
  {id:"flat",name:"扁平插畫風",en:"Flat Illustration",v:"flat",t:["#F7F9FC","#264653","#2A9D8F","#E9C46A"],
-  desc:"現代扁平人物與場景，最萬用的教學插畫風。",scene:["國小","國高中","教師研習"],best:["canva","gamma","nlm"],
+  desc:"現代扁平人物與場景，最萬用的教學插畫風。",best:["canva","gamma","nlm"],
   pal:[["#F7F9FC","淺灰白"],["#264653","深青"],["#2A9D8F","青綠"],["#E9C46A","芥末黃"],["#F4A261","杏橘"]],
   font:"現代無襯線粗體",layout:"左文右圖或上圖下文，插畫佔版面一半",
   visual:"扁平向量插畫、幾何化人物、無陰影色塊",
   avoid:"寫實照片、立體陰影、雜亂背景",img:"flat vector illustration, geometric characters, no gradients"},
  {id:"sticky",name:"白板便利貼風",en:"Sticky Notes",v:"sticky",t:["#FAFAFA","#2B2D42","#FFE066","#FF8FAB"],
-  desc:"白板加彩色便利貼，腦力激盪、分組討論最適合。",scene:["國小","國高中","教師研習"],best:["canva","nlm"],
+  desc:"白板加彩色便利貼，腦力激盪、分組討論最適合。",best:["canva","nlm"],
   pal:[["#FAFAFA","白板白"],["#FFE066","便利貼黃"],["#FF8FAB","便利貼粉"],["#8ED1FC","便利貼藍"],["#2B2D42","白板筆黑"]],
   font:"麥克筆手寫感標題，清楚的黑體內文",layout:"每個重點寫在一張便利貼上，微微傾斜排在白板上，用磁鐵或膠帶點綴",
   visual:"白板背景、彩色便利貼、白板筆手寫",
   avoid:"整段文字、正式商務感",img:"colorful sticky notes on a whiteboard, marker handwriting"},
  {id:"editorial",name:"雜誌編輯風",en:"Editorial Magazine",v:"editorial",t:["#FFFFFF","#111111","#C8102E","#E8E4DD"],
-  desc:"大標題、大圖、分欄排版，像在翻一本雜誌。",scene:["國高中","教師研習"],best:["nlm","gamma"],
+  desc:"大標題、大圖、分欄排版，像在翻一本雜誌。",best:["nlm","gamma"],
   pal:[["#FFFFFF","白"],["#111111","墨黑"],["#C8102E","雜誌紅"],["#E8E4DD","淺灰米"]],
   font:"明體大標題，黑體內文",layout:"不對稱排版，大字標題壓在滿版照片上，引言用超大引號",
   visual:"高質感雜誌排版、大量留白、黑白照片配一個強調色",
   avoid:"卡通插圖、圓角色塊、太多顏色",img:"editorial magazine photography, high contrast, black and white with a red accent"},
  {id:"academic",name:"學術研究風",en:"Academic",v:"academic",t:["#FFFFFF","#1B2A41","#3E7CB1","#9AA5B1"],
-  desc:"嚴謹清楚、圖表優先，適合研習、專題與研究報告。",scene:["國高中","教師研習"],best:["nlm","gamma","canva"],
+  desc:"嚴謹清楚、圖表優先，適合研習、專題與研究報告。",best:["nlm","gamma","canva"],
   pal:[["#FFFFFF","白"],["#1B2A41","深海軍藍"],["#3E7CB1","學術藍"],["#9AA5B1","中性灰"]],
   font:"明體標題，黑體內文",layout:"標題下方一條細線，圖表佔主要版面，頁尾註明資料來源",
   visual:"嚴謹的學術風格、資料圖表、結構清楚",
   avoid:"卡通、花俏字體、裝飾圖片、沒有來源的數據",img:"clean academic charts and diagrams, scientific figure style"},
  {id:"infographic",name:"資訊圖表風",en:"Infographic",v:"infographic",t:["#F5F7FA","#0B3C5D","#EF6F6C","#D9B310"],
-  desc:"用數字、圖示、流程圖說故事，把抽象概念變具體。",scene:["國小","國高中","教師研習"],best:["nlm","canva","gamma"],
+  desc:"用數字、圖示、流程圖說故事，把抽象概念變具體。",best:["nlm","canva","gamma"],
   pal:[["#F5F7FA","淺灰"],["#0B3C5D","深藍"],["#328CC1","藍"],["#D9B310","金黃"],["#EF6F6C","珊瑚紅"]],
   font:"粗黑體放大數字，清楚的黑體內文",layout:"每頁一種圖表：流程圖、比較表、時間軸或圓餅圖，關鍵數字放大",
   visual:"扁平資訊圖表，圖示＋大數字＋簡短說明",
   avoid:"長段落、3D 圖表、裝飾性照片",img:"flat infographic icons, data visualization, clean charts"},
  {id:"retro",name:"復古海報風",en:"Retro Poster",v:"retro",t:["#F3E9D2","#3A2E39","#E07A1F","#1D7874"],
-  desc:"70 年代配色與粗體字，歷史、國文、社會課很對味。",scene:["國小","國高中"],best:["canva","gamma","nlm"],
+  desc:"70 年代配色與粗體字，歷史、國文、社會課很對味。",best:["canva","gamma","nlm"],
   pal:[["#F3E9D2","舊紙米"],["#E07A1F","復古橘"],["#C1440E","磚紅"],["#1D7874","孔雀綠"],["#3A2E39","深咖啡"]],
   font:"粗體復古展示字標題",layout:"海報式構圖：大標題配放射或條紋背景，加網點紋理",
   visual:"70 年代復古海報、網點印刷質感、舊紙紋理",
   avoid:"霓虹色、科技感、極簡留白",img:"1970s retro poster, halftone print texture, sunburst stripes"},
  {id:"morandi",name:"莫蘭迪色系",en:"Morandi Muted",v:"morandi",t:["#E8E3DE","#5E5B57","#A3B1A0","#C9A9A6"],
-  desc:"灰調低飽和，沉穩舒服，親師座談和研習很合適。",scene:["國高中","教師研習"],best:["canva","gamma","nlm"],
+  desc:"灰調低飽和，沉穩舒服，親師座談和研習很合適。",best:["canva","gamma","nlm"],
   pal:[["#E8E3DE","灰米"],["#B7A99A","灰褐"],["#A3B1A0","灰綠"],["#C9A9A6","灰粉"],["#5E5B57","深灰"]],
   font:"優雅的細黑體",layout:"大色塊分區、對稱排版、留白充足",
   visual:"莫蘭迪低飽和配色、柔和霧面質感、簡約",
   avoid:"高彩度、螢光色、卡通",img:"muted Morandi color palette, soft matte texture, minimal still life"},
  {id:"fieldguide",name:"博物圖鑑風",en:"Field Guide",v:"fieldguide",t:["#F6F4EC","#3B3B3B","#2F5D50","#C2A878"],
-  desc:"像自然圖鑑的手繪插圖加標註，自然科、生物課首選。",scene:["國小","國高中"],best:["nlm","gamma"],
+  desc:"像自然圖鑑的手繪插圖加標註，自然科、生物課首選。",best:["nlm","gamma"],
   pal:[["#F6F4EC","圖鑑紙色"],["#2F5D50","森林綠"],["#8DA47E","苔綠"],["#C2A878","原木色"],["#3B3B3B","墨灰"]],
   font:"明體標題，清楚的黑體說明文字",layout:"圖鑑頁：一張大插圖，用細標註線指向各部位並附短說明",
   visual:"博物學圖鑑、科學手繪插圖、細緻線條與淡彩",
   avoid:"卡通、霓虹色、照片拼貼",img:"vintage natural history illustration, botanical scientific drawing with labels"},
  {id:"tech",name:"科技未來風",en:"Tech Futuristic",v:"tech",t:["#0B1021","#E6F1FF","#00D1FF","#7C4DFF"],
-  desc:"深色底加發光線條，AI、程式、STEM 課程首選。",scene:["國高中","教師研習"],best:["nlm","gamma","canva"],
+  desc:"深色底加發光線條，AI、程式、STEM 課程首選。",best:["nlm","gamma","canva"],
   pal:[["#0B1021","深夜藍"],["#E6F1FF","冷白"],["#00D1FF","電光藍"],["#7C4DFF","電紫"],["#00E5A0","螢光綠"]],
   font:"幾何感無襯線字",layout:"深色背景、資料面板式區塊、細線網格",
   visual:"未來科技感、發光線條、電路與網格元素",
   avoid:"手繪、可愛插圖、暖色復古",img:"futuristic tech interface, neon glow lines, dark background, circuit grid"},
  {id:"pixel",name:"像素遊戲風",en:"Pixel Game",v:"pixel",t:["#1A1C2C","#F4F4F4","#38B764","#B13E53"],
-  desc:"8-bit 闖關介面，複習課、遊戲化教學超吸睛。",scene:["國小","國高中"],best:["nlm","gamma"],
+  desc:"8-bit 闖關介面，複習課、遊戲化教學超吸睛。",best:["nlm","gamma"],
   pal:[["#1A1C2C","遊戲黑"],["#F4F4F4","白"],["#FFCD75","金幣黃"],["#38B764","生命綠"],["#B13E53","血條紅"],["#41A6F6","藍"]],
   font:"像素字型標題，清楚的黑體內文",layout:"像遊戲關卡：關卡地圖、血條、對話框、得分板",
   visual:"8-bit 像素藝術、復古電玩、像素角色與道具",
   avoid:"寫實照片、細緻漸層",img:"8-bit pixel art, retro video game UI, pixel characters"},
  {id:"comic",name:"漫畫分格風",en:"Comic Panels",v:"comic",t:["#FFFFFF","#000000","#FFD23F","#EE4266"],
-  desc:"分格、對話框、效果字，故事和情境題最有戲。",scene:["國小","國高中"],best:["nlm","gamma"],
+  desc:"分格、對話框、效果字，故事和情境題最有戲。",best:["nlm","gamma"],
   pal:[["#FFFFFF","白"],["#000000","墨線黑"],["#FFD23F","漫畫黃"],["#EE4266","漫畫紅"],["#3BCEAC","青綠"]],
   font:"粗體漫畫字標題，對話框內用清楚的黑體",layout:"漫畫分格，角色對話框，加「碰！」之類的效果字與網點背景",
   visual:"漫畫風格、粗黑描線、網點",
   avoid:"照片、細線條、對話框塞太多字",img:"comic book panels, bold black ink outlines, halftone dots, speech bubbles"},
  {id:"papercut",name:"剪紙拼貼風",en:"Paper Cut Collage",v:"papercut",t:["#EFE6D8","#264653","#E76F51","#2A9D8F"],
-  desc:"層疊紙片加陰影的手作感，美勞與節慶主題適用。",scene:["幼兒園","國小"],best:["nlm","gamma"],
+  desc:"層疊紙片加陰影的手作感，美勞與節慶主題適用。",best:["nlm","gamma"],
   pal:[["#EFE6D8","牛皮紙"],["#E76F51","紅橘"],["#2A9D8F","綠"],["#264653","深藍"],["#F4A261","黃橘"]],
   font:"圓潤粗體",layout:"層層疊疊的紙片組成場景，文字放在剪紙標籤上",
   visual:"剪紙拼貼、紙張層疊與柔和投影、紙纖維質感",
   avoid:"寫實照片、沒有層次的平面色塊",img:"layered paper cut art, papercraft collage, soft drop shadows"},
  {id:"watercolor",name:"水彩手繪風",en:"Watercolor",v:"watercolor",t:["#FFFFFF","#5C5470","#9CC5E3","#F2B5C4"],
-  desc:"暈染色彩與留白，溫柔有溫度，語文、藝術、生命教育都適合。",scene:["幼兒園","國小","國高中"],best:["nlm","gamma","canva"],
+  desc:"暈染色彩與留白，溫柔有溫度，語文、藝術、生命教育都適合。",best:["nlm","gamma","canva"],
   pal:[["#FFFFFF","水彩紙白"],["#9CC5E3","水藍"],["#F2B5C4","淡粉"],["#B8D8BA","淡綠"],["#5C5470","深紫灰（文字）"]],
   font:"手寫感標題，清楚的黑體內文",layout:"水彩暈染當背景或邊框，文字放在留白處",
   visual:"水彩手繪、暈染邊緣、紙張紋理",
   avoid:"硬邊幾何、科技感、大面積黑色",img:"soft watercolor painting, wet edges, textured paper"},
  {id:"bento",name:"便當格狀風",en:"Bento Grid",v:"bento",t:["#F2F2F2","#111827","#F59E0B","#FFFFFF"],
-  desc:"大小格子拼成一頁，一次呈現多個重點，總複習好用。",scene:["國高中","教師研習"],best:["canva","gamma","nlm"],
+  desc:"大小格子拼成一頁，一次呈現多個重點，總複習好用。",best:["canva","gamma","nlm"],
   pal:[["#F2F2F2","淺灰"],["#111827","深灰"],["#FFFFFF","白"],["#6366F1","靛藍"],["#F59E0B","琥珀"]],
   font:"現代黑體，用粗細對比做層次",layout:"便當盒格狀：一頁分成 4 到 6 個大小不一的圓角格子，每格放一個重點、數字或圖示",
   visual:"現代 Bento grid 版面、圓角卡片、乾淨俐落",
   avoid:"長段落、排列雜亂",img:"bento grid layout, rounded cards, clean modern UI"},
  {id:"clay",name:"3D 黏土風",en:"Clay 3D",v:"clay",t:["#F3F0FF","#3F3A5A","#FF8FA3","#7BD3EA"],
-  desc:"圓滾滾的黏土質感角色，牢牢抓住低年級的注意力。",scene:["幼兒園","國小"],best:["nlm","gamma"],
+  desc:"圓滾滾的黏土質感角色，牢牢抓住低年級的注意力。",best:["nlm","gamma"],
   pal:[["#F3F0FF","淡紫底"],["#FF8FA3","草莓粉"],["#7BD3EA","粉藍"],["#A1EEBD","粉綠"],["#FFD26F","奶黃"]],
   font:"粗圓體",layout:"中央一個 3D 黏土角色或物件，簡短文字放旁邊",
   visual:"3D 黏土軟陶質感、圓潤造型、柔和光影",
@@ -424,7 +422,7 @@ Object.entries(EXTRA).forEach(([k,ids]) => ids.forEach(id => STYLES.find(s => s.
 
 const $ = s => document.querySelector(s);
 const store = { get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}} };
-const state = { tool: store.get("ppt-tool") || "nlm", filterTool:"all", scene:"all", sel:"minimal", view:"library", custom:null };
+const state = { tool: store.get("ppt-tool") || "nlm", filterTool:"all", sel:"minimal", view:"library", custom:null };
 if(!TOOLS[state.tool]) state.tool = "nlm";
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -512,13 +510,12 @@ function copyText(text, preEl, done){
 
 /* ---------- 風格庫 ---------- */
 function renderFilters(){
-  const tg = $("#f-tool"), sg = $("#f-scene");
+  const tg = $("#f-tool");
   const chip = (g, key, val, label) => `<button class="chip" data-g="${g}" data-v="${val}" aria-pressed="${state[key]===val}">${label}</button>`;
   tg.innerHTML = "<b>工具</b>" + chip("filterTool","filterTool","all","全部") + Object.entries(TOOLS).map(([k,t]) => chip("filterTool","filterTool",k,t.name+" 推薦")).join("");
-  sg.innerHTML = "<b>適用</b>" + chip("scene","scene","all","全部") + SCENES.map(x => chip("scene","scene",x,x)).join("");
 }
 function visible(){
-  return STYLES.filter(s => (state.filterTool==="all" || s.best.includes(state.filterTool)) && (state.scene==="all" || s.scene.includes(state.scene)));
+  return STYLES.filter(s => state.filterTool==="all" || s.best.includes(state.filterTool));
 }
 function renderGrid(){
   const list = visible();
@@ -543,7 +540,7 @@ function renderDetail(el, s, extra){
       <h2><small>${esc(s.en)}</small>${esc(s.name)}</h2>
       <p class="desc">${esc(s.desc)}</p>
       <div class="swatches">${s.pal.map(([h,n]) => `<span class="sw"><b style="background:${h}"></b>${esc(n)} ${h}</span>`).join("")}</div>
-      ${extra || `<dl class="meta"><dt>適用</dt><dd>${s.scene.join("、")}</dd><dt>推薦工具</dt><dd>${s.best.map(k=>TOOLS[k].name).join("、")}</dd></dl>`}
+      ${extra || `<dl class="meta"><dt>推薦工具</dt><dd>${s.best.map(k=>TOOLS[k].name).join("、")}</dd></dl>`}
     </div>
     <div class="tabs" role="tablist">${Object.entries(TOOLS).map(([k,t]) =>
       `<button class="tab" role="tab" data-tool="${k}" aria-selected="${k===state.tool}">${t.name}${s.best.includes(k)?'<span class="rec">推薦</span>':''}</button>`).join("")}</div>
@@ -581,7 +578,6 @@ const ANALYZE_PROMPT = `你是簡報視覺設計分析師。圖片是一位台�
   "mood": "氛圍關鍵字 3 個，用頓號分隔",
   "avoid": "要維持這個風格應避免的元素，用頓號分隔",
   "img": "English art style description for image generators, under 25 words",
-  "scene": ["從 幼兒園、國小、國高中、教師研習 中選適合的"],
   "best": ["從 nlm、canva、gamma、gemini、chatgpt 中選最能呈現此風格的 1 到 3 個"]
 }
 
@@ -635,7 +631,6 @@ function toStyle(r){
     t:[bg, fg, others[0] || fg, others[1] || others[0] || fg], pal,
     font:str(r.font,"清楚易讀的黑體"), layout:str(r.layout,"一頁一個重點，留白充足"), visual:str(r.visual,""),
     mood:str(r.mood,""), avoid:str(r.avoid,"雜亂的版面、過小的文字"), img:str(r.img,"clean presentation illustration"),
-    scene:(Array.isArray(r.scene) ? r.scene : []).filter(x => SCENES.includes(x)),
     best:(Array.isArray(r.best) ? r.best : []).filter(k => TOOLS[k]).slice(0,3)
   };
 }
@@ -653,7 +648,7 @@ function renderAnaPanel(){
   const extra = `<dl class="elements">
       <dt>字體</dt><dd>${esc(s.font)}</dd><dt>版面</dt><dd>${esc(s.layout)}</dd>
       <dt>質感元素</dt><dd>${esc(s.visual)}</dd>${s.mood ? `<dt>氛圍</dt><dd>${esc(s.mood)}</dd>` : ""}
-      <dt>避免</dt><dd>${esc(s.avoid)}</dd>${s.scene.length ? `<dt>適用</dt><dd>${s.scene.join("、")}</dd>` : ""}
+      <dt>避免</dt><dd>${esc(s.avoid)}</dd>
       <dt>推薦工具</dt><dd>${s.best.map(k=>TOOLS[k].name).join("、")}</dd></dl>`;
   renderDetail(el, s, extra);
 }
