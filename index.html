@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="20 種教師常用簡報風格，依 NotebookLM、Canva AI、Gamma、Gemini、ChatGPT 提供可直接複製的提示詞，並可把參考圖轉成風格提示詞。">
+<meta name="description" content="20 種教師常用簡報風格，依 Gemini Notebook、Canva AI、Gamma、Gemini Canvas、ChatGPT 提供可直接複製的提示詞，並可把參考圖轉成風格提示詞。">
 <meta property="og:title" content="簡報風格提示詞庫">
 <meta property="og:description" content="20 種教師常用簡報風格 × 5 個 AI 工具的提示詞，點選即可複製。">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -220,7 +220,7 @@ footer a{color:var(--accent)}
 <div class="wrap">
   <header class="top">
     <h1>簡報風格<mark>提示詞庫</mark></h1>
-    <p class="lede">挑一個風格，選你要用的 AI 工具（NotebookLM、Canva AI、Gamma、Gemini、ChatGPT），複製提示詞貼上就能生成簡報；也可以用「風格分析器」上傳參考圖，自動轉成提示詞。先在下面填好課程主題，提示詞會自動帶入。</p>
+    <p class="lede">挑一個風格，選你要用的 AI 工具（Gemini Notebook、Canva AI、Gamma、Gemini Canvas、ChatGPT），複製提示詞貼上就能生成簡報；也可以用「風格分析器」上傳參考圖，自動轉成提示詞。先在下面填好課程主題，提示詞會自動帶入。</p>
     <div class="course">
       <div class="lbl">先填你的課（可留空，之後再改）</div>
       <label class="field"><span>簡報主題</span><input id="in-topic" placeholder="例：水的循環"></label>
@@ -284,23 +284,23 @@ footer a{color:var(--accent)}
 
   <footer>
     <div>標「推薦」的工具代表該風格在這個工具上效果較穩定；其他工具也能用，只是較難完全照風格產出。</div>
-    <div>NotebookLM 已於 2026 年 7 月更名為 Gemini Notebook，簡報功能以圖片方式生成，所以配色與字體要寫在提示詞裡（參考：<a href="https://support.google.com/gemininotebook/answer/16757456?hl=en" target="_blank" rel="noopener">Google 說明</a>、<a href="https://notebooklm-guide.com/slide-deck-custom-prompts/" target="_blank" rel="noopener">NotebookLM Guide</a>）。Canva AI 會先產生範本再套內容（<a href="https://www.canva.com/help/using-magic-presentations/" target="_blank" rel="noopener">Canva 說明</a>）。Gemini 在 Canvas 模式可產生簡報並匯出成 Google 簡報（<a href="https://workspaceupdates.googleblog.com/2025/10/generate-presentations-in-gemini-app.html" target="_blank" rel="noopener">Google Workspace 更新</a>）；ChatGPT 產出的是 .pptx 檔。</div>
+    <div>Gemini Notebook（2026 年 7 月由 NotebookLM 更名）的簡報功能以圖片方式生成，所以配色與字體要寫在提示詞裡（參考：<a href="https://support.google.com/gemininotebook/answer/16757456?hl=en" target="_blank" rel="noopener">Google 說明</a>、<a href="https://notebooklm-guide.com/slide-deck-custom-prompts/" target="_blank" rel="noopener">提示詞教學文章</a>）。Canva AI 會先產生範本再套內容（<a href="https://www.canva.com/help/using-magic-presentations/" target="_blank" rel="noopener">Canva 說明</a>）。Gemini 在 Canvas 模式可產生簡報並匯出成 Google 簡報（<a href="https://workspaceupdates.googleblog.com/2025/10/generate-presentations-in-gemini-app.html" target="_blank" rel="noopener">Google Workspace 更新</a>）；ChatGPT 產出的是 .pptx 檔。</div>
     <div>各工具介面時常更新，操作步驟以當下畫面為準。AI 產出的內容與圖表請上課前再核對一次。</div>
   </footer>
 </div>
 
 <script>
 const TOOLS = {
-  nlm:{name:"NotebookLM",
+  nlm:{name:"Gemini Notebook",
     steps:["先把課本、講義等來源上傳到筆記本","右側 Studio → 簡報（Slide Deck）→ 鉛筆圖示「自訂」","格式選「簡報者投影片」，長度依需求選","貼上提示詞 → 生成"],
-    note:"NotebookLM 把每頁簡報當圖片生成，事後不能單獨改字體或顏色，所以配色、字體要一次寫清楚；寫 HEX 色碼能讓每頁顏色比較一致。"},
+    note:"Gemini Notebook 把每頁簡報當圖片生成，事後不能單獨改字體或顏色，所以配色、字體要一次寫清楚；寫 HEX 色碼能讓每頁顏色比較一致。"},
   canva:{name:"Canva AI",
     steps:["Canva 首頁點 Canva AI，類型選「簡報」","貼上提示詞 → 生成","從產生的幾個範本挑最接近的","不滿意的頁面用「Edit with AI」再描述修改"],
     note:"Canva 會套用範本風格，色碼不一定照單全收；想精準配色，可到「設計 → 樣式」或品牌工具組手動套用色碼。"},
   gamma:{name:"Gamma",
     steps:["Gamma 點「Create new」→「Generate」→ 簡報","貼上提示詞，卡片數量設成你的頁數","Theme 挑最接近這個風格的主題","圖片風格（Art style）欄位貼上提示詞最後一行的英文"],
     note:"Gamma 的主題決定字體與底色，提示詞負責內容與插圖；英文的圖片風格描述，讓 AI 生成的插圖較符合風格。"},
-  gemini:{name:"Gemini",
+  gemini:{name:"Gemini Canvas",
     steps:["開啟 gemini.google.com，輸入框下方的工具選「Canvas」","貼上提示詞 → 生成簡報","完成後點「匯出至簡報」（Export to Slides）","到 Google 簡報微調文字與圖片"],
     note:"Gemini 偶爾會只給 HTML 程式碼而不是簡報，這時再補一句「請直接產生簡報，不要給程式碼」。也可以在 Google 簡報右側的 Gemini 面板逐頁生成。"},
   chatgpt:{name:"ChatGPT",
@@ -312,7 +312,7 @@ const TOOLS = {
 const STYLES = [
  {id:"minimal",name:"極簡留白風",en:"Minimal Clean",v:"minimal",t:["#FFFFFF","#222831","#2F6FED","#E3E8F2"],
   desc:"大量留白、一頁一重點，任何科目都不出錯。",best:["nlm","canva","gamma"],
-  pal:[["#FFFFFF","純白"],["#222831","炭黑"],["#2F6FED","亮藍"]],
+  pal:[["#FFFFFF","純白"],["#222831","炭黑"],["#2F6FED","亮藍"],["#E3E8F2","淺灰藍（區塊底色）"]],
   font:"粗黑體標題，細黑體內文",layout:"標題靠左上，內容置中，四周留白至少三分之一，頁碼放右下",
   visual:"乾淨極簡、白底黑字，只用一個強調色標出關鍵字，圖示用細線條",
   avoid:"漸層、陰影、裝飾性圖片、整段文字",img:"minimalist, flat thin line icons, lots of white space, single blue accent"},
@@ -322,7 +322,7 @@ const STYLES = [
   font:"粉筆手寫感標題，內文用清楚的圓體確保易讀",layout:"像老師的板書：標題加底線，重點用粉筆框圈起來，角落畫小插圖",
   visual:"墨綠黑板質感背景、粉筆手寫字與粉筆線條、帶一點粉筆灰",
   avoid:"照片、太細的字、螢光色",img:"chalk drawing on dark green chalkboard, hand-drawn chalk lines, light chalk dust"},
- {id:"sketch",name:"手繪筆記風",en:"Sketchnote",v:"sketch",t:["#FFFFFF","#1F1F1F","#3DA5D9","#FFE08A"],
+ {id:"sketch",name:"手繪筆記風",en:"Sketchnote",v:"sketch",t:["#FFFFFF","#1F1F1F","#3DA5D9","#FFB627"],
   desc:"箭頭、框線、小人物串起概念，講流程和概念圖最清楚。",best:["nlm","gamma"],
   pal:[["#FFFFFF","白紙"],["#1F1F1F","黑色簽字筆"],["#3DA5D9","藍色螢光筆"],["#FFB627","黃色螢光筆"]],
   font:"手寫感標題，清楚的手寫風內文",layout:"視覺筆記：主題放中央，周圍用箭頭、對話框、小方框連結各重點",
@@ -330,13 +330,13 @@ const STYLES = [
   avoid:"寫實照片、3D 效果、密集文字",img:"sketchnote doodle, black marker line art on white paper, highlighter accents"},
  {id:"picturebook",name:"繪本童趣風",en:"Picture Book",v:"picturebook",t:["#FFF6E5","#3D3A35","#FF9F6B","#6BBF8E"],
   desc:"溫暖插畫、大字少字，幼兒園和低年級最愛。",best:["nlm","canva","gamma"],
-  pal:[["#FFF6E5","暖奶油"],["#6BBF8E","草地綠"],["#FF9F6B","橘子色"],["#5AA9E6","天空藍"]],
+  pal:[["#FFF6E5","暖奶油"],["#6BBF8E","草地綠"],["#FF9F6B","橘子色"],["#5AA9E6","天空藍"],["#3D3A35","深棕灰（文字）"]],
   font:"圓潤粗圓體，字級特大",layout:"一頁一張大插圖配一句短句，像在翻繪本",
   visual:"溫暖的兒童繪本插畫、可愛動物角色、蠟筆與色鉛筆質感",
   avoid:"抽象圖表、小字、商務元素、尖銳或嚇人的造型",img:"warm children's picture book illustration, crayon and colored pencil texture, cute animals"},
  {id:"pastel",name:"馬卡龍粉彩風",en:"Pastel Macaron",v:"pastel",t:["#FFF9FB","#4A4A68","#F7B2BD","#BDE0FE"],
   desc:"粉嫩低飽和色塊，溫柔可愛又不會太幼稚。",best:["canva","gamma"],
-  pal:[["#FDE2E4","草莓粉"],["#CDEAC0","抹茶綠"],["#BDE0FE","薄荷藍"],["#FFF1B6","檸檬黃"],["#4A4A68","深灰紫（文字）"]],
+  pal:[["#FFF9FB","淡粉白（底色）"],["#F7B2BD","草莓粉"],["#CDEAC0","抹茶綠"],["#BDE0FE","薄荷藍"],["#FFF1B6","檸檬黃"],["#4A4A68","深灰紫（文字）"]],
   font:"圓體",layout:"圓角色塊分區，內容放在柔和的色卡上",
   visual:"粉彩馬卡龍配色、圓角造型、小星星與愛心點綴",
   avoid:"高飽和色、大面積黑色、尖角",img:"soft pastel colors, rounded shapes, cute minimal decorations"},
@@ -426,14 +426,14 @@ const STYLES = [
   avoid:"長段落、排列雜亂",img:"bento grid layout, rounded cards, clean modern UI"},
  {id:"clay",name:"3D 黏土風",en:"Clay 3D",v:"clay",t:["#F3F0FF","#3F3A5A","#FF8FA3","#7BD3EA"],
   desc:"圓滾滾的黏土質感角色，牢牢抓住低年級的注意力。",best:["nlm","gamma"],
-  pal:[["#F3F0FF","淡紫底"],["#FF8FA3","草莓粉"],["#7BD3EA","粉藍"],["#A1EEBD","粉綠"],["#FFD26F","奶黃"]],
+  pal:[["#F3F0FF","淡紫底"],["#FF8FA3","草莓粉"],["#7BD3EA","粉藍"],["#A1EEBD","粉綠"],["#FFD26F","奶黃"],["#3F3A5A","深紫灰（文字）"]],
   font:"粗圓體",layout:"中央一個 3D 黏土角色或物件，簡短文字放旁邊",
   visual:"3D 黏土軟陶質感、圓潤造型、柔和光影",
   avoid:"寫實、尖銳造型、黑暗色調",img:"cute 3D clay render, claymation style, soft lighting, rounded shapes"}
 ];
 
 // Gemini、ChatGPT 推薦的風格：版面以色塊、圖表為主，不靠插畫質感
-const EXTRA = {gemini:["minimal","flat","academic","infographic","morandi","tech","bento"], chatgpt:["minimal","pastel","academic","morandi","bento"]};
+const EXTRA = {gemini:["minimal","academic","infographic","morandi","tech","bento"], chatgpt:["minimal","pastel","academic","morandi","bento"]};
 Object.entries(EXTRA).forEach(([k,ids]) => ids.forEach(id => STYLES.find(s => s.id===id).best.push(k)));
 
 const $ = s => document.querySelector(s);
@@ -607,10 +607,10 @@ function metaPrompt(){
 1. 拆解它的視覺元素：配色（列出 3 到 5 個 HEX 色碼與顏色名稱）、字體特徵、版面構成、插圖與質感、整體氛圍。
 2. 幫這個風格取一個中文名稱。
 3. 依下面的規則，寫出五段可以直接複製的簡報提示詞。簡報主題是「${topic.v}」，對象是${aud.v}，約 ${pages.v} 頁。
-   - NotebookLM：寫最完整，包含 HEX 色碼、字體、版面，要求每一頁維持同一組配色，只使用來源資料的內容。
+   - Gemini Notebook：寫最完整，包含 HEX 色碼、字體、版面，要求每一頁維持同一組配色，只使用來源資料的內容。
    - Canva AI：用顏色名稱和整體氛圍描述，不寫色碼，重點放在頁數和內容結構。
    - Gamma：用中文寫內容與版面，最後另附一行英文的 Art style 圖片風格描述。
-   - Gemini：要求用 Canvas 產生簡報並能匯出成 Google 簡報，不要只給程式碼。
+   - Gemini Canvas：要求用 Canvas 產生簡報並能匯出成 Google 簡報，不要只給程式碼。
    - ChatGPT：要求產出 .pptx 檔，寫明色碼、微軟正黑體與字級（標題 40pt、內文 24pt 以上），插圖用色塊表現。
 
 每段提示詞都要求：一頁一個重點、最後一頁放課堂討論問題、全部使用台灣繁體中文。只描述風格，不要照抄圖片裡的文字或人物。`;
@@ -721,7 +721,7 @@ const GUIDE = [
   {k:"nlm", how:"每頁簡報是一張 AI 生成的圖片，內容只取自你上傳的來源",
    focus:"寫最完整：色碼、字體、版面都要寫明，並要求「每頁維持同一組配色」；加上「只用來源內容，不編造數據」",
    why:"做完不能再單獨改字體和顏色，沒寫進提示詞的設計就交給 AI 亂選；長簡報的配色容易逐頁跑掉，寫精確色碼比形容詞穩定",
-   fits:"插畫、手繪、材質感重的風格（黑板、水彩、黏土、漫畫）", src:"ok", srcText:"有資料依據：Google 說明、NotebookLM Guide"},
+   fits:"插畫、手繪、材質感重的風格（黑板、水彩、黏土、漫畫）", src:"ok", srcText:"有資料依據：Google 說明、教學文章"},
   {k:"canva", how:"先從範本庫挑出幾個範本，再把內容填進去",
    focus:"寫感覺，不寫細節：用顏色名稱和整體氛圍描述，讓它挑對範本；重點放在頁數和內容結構",
    why:"範本會蓋過提示詞裡的色碼，寫太細沒有用；精準配色在「設計 → 樣式」手動改更快",
@@ -729,7 +729,7 @@ const GUIDE = [
   {k:"gamma", how:"主題（Theme）決定字體和底色，內容和插圖由 AI 生成",
    focus:"分兩部分：中文寫內容與版面，另附一行英文給圖片風格欄位，專門管插圖畫風",
    why:"版面交給主題，提示詞能多發揮的是插圖；插圖生成對英文的風格描述反應較好",
-   fits:"插圖多、想快速做出質感的風格", src:"mine", srcText:"Abby 待實測：依工具特性判斷"},
+   fits:"插圖多、想快速做出質感的風格", src:"mine", srcText:"待實測：依工具特性判斷"},
   {k:"gemini", how:"在 Canvas 模式產生整份簡報，再匯出成 Google 簡報",
    focus:"結構寫清楚（封面、每頁一重點、結尾問題），配色與字體照寫；結尾加「直接產生簡報，不要只給程式碼」",
    why:"匯出後是可編輯的 Google 簡報，版面以文字和色塊為主；有使用者回報它有時只給 HTML 程式碼",
@@ -740,16 +740,16 @@ const GUIDE = [
    fits:"純色塊、格狀版面的風格（極簡、莫蘭迪、便當格狀）", src:"mine", srcText:"部分依據：評測文章；推薦風格為判斷"}
 ];
 const PICK = [
-  ["已經有課本、講義，想直接生成且風格要到位","NotebookLM"],
+  ["已經有課本、講義，想直接生成且風格要到位","Gemini Notebook"],
   ["想挑範本、之後要自己拖拉編輯","Canva AI"],
   ["插圖要多，想最快做出有質感的簡報","Gamma"],
-  ["學校用 Google Workspace，要 Google 簡報檔","Gemini"],
+  ["學校用 Google Workspace，要 Google 簡報檔","Gemini Canvas"],
   ["要 .pptx 檔，或想順便拿到每頁講稿","ChatGPT"]
 ];
 function renderGuide(){
   $("#v-guide").innerHTML = `
     <section>
-      <h2>分法的原則</h2>
+      <h2>寫法的原則</h2>
       <p>依每個工具「怎麼生成簡報」決定提示詞要寫什麼：工具自己會決定的部分少寫，工具做不到的不寫，只寫工具需要你交代的部分。</p>
       <div class="tbl"><table>
         <thead><tr><th>工具</th><th>它怎麼生成</th><th>提示詞重點</th><th>為什麼這樣寫</th><th>最適合的風格</th></tr></thead>
