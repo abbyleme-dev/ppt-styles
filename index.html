@@ -729,7 +729,7 @@ const GUIDE = [
   {k:"gamma", how:"主題（Theme）決定字體和底色，內容和插圖由 AI 生成",
    focus:"分兩部分：中文寫內容與版面，另附一行英文給圖片風格欄位，專門管插圖畫風",
    why:"版面交給主題，提示詞能多發揮的是插圖；插圖生成對英文的風格描述反應較好",
-   fits:"插圖多、想快速做出質感的風格", src:"mine", srcText:"待實測：依工具特性判斷"},
+   fits:"插圖多、想快速做出質感的風格", src:"", srcText:""},
   {k:"gemini", how:"在 Canvas 模式產生整份簡報，再匯出成 Google 簡報",
    focus:"結構寫清楚（封面、每頁一重點、結尾問題），配色與字體照寫；結尾加「直接產生簡報，不要只給程式碼」",
    why:"匯出後是可編輯的 Google 簡報，版面以文字和色塊為主；有使用者回報它有時只給 HTML 程式碼",
@@ -753,7 +753,7 @@ function renderGuide(){
       <p>依每個工具「怎麼生成簡報」決定提示詞要寫什麼：工具自己會決定的部分少寫，工具做不到的不寫，只寫工具需要你交代的部分。</p>
       <div class="tbl"><table>
         <thead><tr><th>工具</th><th>它怎麼生成</th><th>提示詞重點</th><th>為什麼這樣寫</th><th>最適合的風格</th></tr></thead>
-        <tbody>${GUIDE.map(g => `<tr><th>${TOOLS[g.k].name}<br><span class="src ${g.src}">${g.srcText}</span></th><td>${g.how}</td><td>${g.focus}</td><td>${g.why}</td><td>${g.fits}</td></tr>`).join("")}</tbody>
+        <tbody>${GUIDE.map(g => `<tr><th>${TOOLS[g.k].name}${g.srcText ? `<br><span class="src ${g.src}">${g.srcText}</span>` : ""}</th><td>${g.how}</td><td>${g.focus}</td><td>${g.why}</td><td>${g.fits}</td></tr>`).join("")}</tbody>
       </table></div>
     </section>
     <section>
@@ -765,7 +765,7 @@ function renderGuide(){
       <div class="pick">${PICK.map(([q,a]) => `<div><b>${q}</b>${a}</div>`).join("")}</div>
     </section>
     <section>
-      <p>「有資料依據」代表工具的生成方式有官方說明或公開文章佐證；「待實測」代表是依工具特性的判斷，尚未用實際簡報驗證。各工具介面時常更新，以當下畫面為準。</p>
+      <p>「有資料依據」代表工具的生成方式有官方說明或公開文章佐證。各工具介面時常更新，以當下畫面為準。</p>
     </section>`;
 }
 
